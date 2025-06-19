@@ -1,0 +1,16 @@
+bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent
+
+
+
+
+Create this section : AI Integration Hub
+-----------Description-------------
+1 - Develop a section within your application that serves as the central point for **Google Gemini Live API integration**. This hub should feature an **AI voice chat** capability that enables natural conversations with the AI assistant.
+
+
+
+2 - Based on this implementation, you need to extend its functionality by **adding OpenAI integration**, so we can easily switch between OpenAI and Genmini by setting an environment variable.
+
+3 - This Section should look like the other sections.
+
+------------------------------------
