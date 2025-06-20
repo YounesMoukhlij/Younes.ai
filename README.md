@@ -13,15 +13,16 @@ Please review my work:
 - More ... Feel free to see the website on vercel.
 
 
-Dear Reviewers,  
+### Demo Video
 
-I sincerely apologize for not being able to upload the demo video of my website as planned. Unfortunately, I experienced persistent internet connectivity issues due to a problematic router, which caused severe lag and frequent disconnections throughout the day. Despite multiple attempts, I was unable to successfully upload the recorded video.  
+Dear Reviewers,
 
-I understand the importance of a live demonstration and will prioritize uploading the video as soon as my internet connection stabilizes. Alternatively, I’d be happy to schedule a live walkthrough if needed.  
+I sincerely apologize for not being able to submit the demo video of my website as expected. Unfortunately, I encountered severe internet connectivity issues throughout the day due to a faulty router, which caused constant lag and disruptions. Despite working diligently on the challenge and attempting multiple times to upload the video, the connection was too unstable to complete the upload successfully.
 
-Thank you for your understanding and patience. Please let me know if you’d like any additional details in the meantime.  
 
-Best regards and thanks a lot for your understanding. 
+I truly regret that technical difficulties prevented me from sharing the video demonstration, as I put significant effort into this project and wanted to showcase it properly. As soon as my internet connection stabilizes, I will upload the video and notify you immediately. Alternatively, I’d be happy to schedule a live demo at your convenience.
+
+Thank you for your understanding and for considering my work despite these unexpected challenges. Please let me know if there’s any additional information I can provide.
  
 
 ![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
