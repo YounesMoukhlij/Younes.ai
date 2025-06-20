@@ -13,7 +13,7 @@ Please review my work:
 - More ... Feel free to see the website on vercel
 
 ### Demo Video
-[Upload your 3-minute demo to YouTube or similar and link here]
+
 
 
 
