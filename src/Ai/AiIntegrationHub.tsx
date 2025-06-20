@@ -85,7 +85,15 @@ const callOpenAIAPI = async (message: string, chatHistory: ChatMessage[]) => {
 };
 
 
+const isClient = typeof window !== "undefined";
+
+
 const AiIntegrationHub = () => {
+
+    if (!isClient) {
+        return null;
+    }
+
     const [input, setInput] = useState("");
     const [response, setResponse] = useState("");
     const [loading, setLoading] = useState(false);
