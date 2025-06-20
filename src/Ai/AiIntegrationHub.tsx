@@ -100,6 +100,7 @@ const AiIntegrationHub = () => {
     const [error, setError] = useState("");
     const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
     const [currentProvider, setCurrentProvider] = useState<"gemini" | "openai">("gemini");
+    const [micPermission, setMicPermission] = useState<"granted" | "denied" | "prompt" | "unknown">("unknown");
 
 
     const {
@@ -183,15 +184,9 @@ const AiIntegrationHub = () => {
     useEffect(() => {
         if (navigator.permissions) {
             navigator.permissions.query({ name: 'microphone' as PermissionName }).then((result) => {
-                console.log("Microphone permission state:", result.state);
-                result.onchange = () => {
-                    console.log("Microphone permission changed:", result.state);
-                };
-            }).catch((err) => {
-                console.log("Microphone permission check error:", err);
+                setMicPermission(result.state as any);
+                result.onchange = () => setMicPermission(result.state as any);
             });
-        } else {
-            console.log("Permissions API not supported");
         }
     }, []);
 
@@ -440,6 +435,12 @@ const AiIntegrationHub = () => {
                 >
                     <span className="font-bold">Current Provider:</span> {currentProvider === "gemini" ? "Google Gemini" : "OpenAI GPT"}
                 </motion.div>
+
+                {micPermission === "denied" && (
+                    <div className="text-red-500 p-2">
+                        Microphone access is denied. Please click the lock icon in your browser's address bar, go to "Site settings", and set Microphone to "Allow", then refresh the page.
+                    </div>
+                )}
             </motion.div>
         </motion.section>
     );
