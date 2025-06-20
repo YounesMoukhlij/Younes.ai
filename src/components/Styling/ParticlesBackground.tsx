@@ -1,36 +1,19 @@
-
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import './ParticlesBackground.module.css';
 
+interface ParticlesBackgroundProps {
+  id?: string;
+}
 
-
-
-  // return (
-  //   <Particles
-  //     id="tsparticles"
-  //     init={particlesInit}
-  //     className="fixed inset-0 -z-10" // Tailwind: covers viewport, behind everything
-  //     options={{
-        // your particles config here
-
-
-
-const ParticlesBackground = (props) => {
-
-  const [init, setInit] = useState(false);
-
+const ParticlesBackground = (props: ParticlesBackgroundProps) => {
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
     });
   }, []);
-
-
 
   const options = useMemo(
     () => ({
@@ -74,10 +57,10 @@ const ParticlesBackground = (props) => {
           width: 1,
         },
         move: {
-          direction: "none",
+          direction: "none" as const,
           enable: true,
           outModes: {
-            default: "bounce",
+            default: "bounce" as const,
           },
           random: true,
           speed: 1,
@@ -105,7 +88,7 @@ const ParticlesBackground = (props) => {
   );
 
 
-  return <Particles id={props.id}  options={options}  className="fixed inset-0 -z-10" />;
+  return <Particles id={props.id} options={options} className="fixed inset-0 -z-10" />;
 };
 
 export default ParticlesBackground;
