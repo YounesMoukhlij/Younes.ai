@@ -51,9 +51,15 @@ Thank you for your understanding and for considering my work despite these unexp
 
 
 
-### Create a .env file and add your API keys
+### env
+Create a .env file in the root folder and add your API keys
 cp .env.example .env  # if you provide an example file
 or manually create .env with required variables
+- the variables should be named like this 
+VITE_GEMINI_API_KEY= ...
+VITE_OPENAI_API_KEY= ...
+
+
 
 ### Live Demo on Vercel
 👉 [younes-ai](https://younes-ai.vercel.app)  
