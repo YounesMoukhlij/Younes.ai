@@ -180,6 +180,21 @@ const AiIntegrationHub = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (navigator.permissions) {
+            navigator.permissions.query({ name: 'microphone' as PermissionName }).then((result) => {
+                console.log("Microphone permission state:", result.state);
+                result.onchange = () => {
+                    console.log("Microphone permission changed:", result.state);
+                };
+            }).catch((err) => {
+                console.log("Microphone permission check error:", err);
+            });
+        } else {
+            console.log("Permissions API not supported");
+        }
+    }, []);
+
     const handleSend = async () => {
         if (!input.trim()) return;
 
