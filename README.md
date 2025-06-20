@@ -7,10 +7,16 @@ Please review my work:
 - https://github.com/goldmermaid
 - https://github.com/EnergentAI
 
+ --------> [ Thank you ] <--------
+
 ### Features Implemented
-- Animations, Responsive ...
-- openAi and GeminiAi intergration
-- More ... Feel free to see the website on vercel.
+- Animations [When the cursor passes on a button or a card --- background animation with particules --- transparent header] ....
+- Transitions [Every scroll from section to section is animated by a transition] ....
+- Responsive [I tried to cover all the screens from the smallest to the biggest] ....
+- openAi and GeminiAi intergration [I prefer, cloning the app locally for a better testing especially for the mic]
+- I used popular components from React libraries : Link, Swiper, motion ...
+- Tailwindcss, Typescript 
+- More ... Feel free to see the website on vercel.     
 
 
 ### Demo Video
@@ -24,10 +30,16 @@ I truly regret that technical difficulties prevented me from sharing the video d
 
 Thank you for your understanding and for considering my work despite these unexpected challenges. Please let me know if there’s any additional information I can provide.
  
+<br>
 
-![Video](https://github.com/YounesMoukhlij/Younes.ai/blob/main/video.mov)
 ![Video](https://github.com/YounesMoukhlij/Younes.ai/blob/main/video.gif)
 
+- You can see up there, an orange mic icon, when I click on the mic button in the website.
+- I use the mic (I said : hello), then my voice turns to text( as shown in the gif.
+- the mic checks automatically when I stop talking.
+- I also used a text message.
+- OpenAi does not have a free model, that why it keeps giving one message, which is check our pricings ... etc
+<br>
 
 ![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
 ![Demo 2](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/2.png)
@@ -47,9 +59,14 @@ or manually create .env with required variables
 👉 [younes-ai](https://younes-ai.vercel.app)  
 
 
+
 ### Local Setup
 ```bash
 git clone [your-repo-url]
 cd [your-project]
 npm install
 npm run dev
+
+
+
+
