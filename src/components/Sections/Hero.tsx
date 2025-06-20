@@ -22,9 +22,9 @@ const Hero = () => (
           animate={{ opacity: 1 }}
           transition={{ duration: 1.7, delay: 0.5 }}
         >
-          The AI Agent Helps You Think and ii{' '}
+          The AI Agent Helps You Think and {' '}
         </motion.span>
-        <motion.span 
+        <motion.span
           className="text-blue-300"
           initial={{ opacity: 0, scale: 1.8 }}
           animate={{ opacity: 1, scale: 4 }}
