@@ -73,7 +73,7 @@ A special thanks to the reviewers for their time and feedback:
 
 ### 🎥 Demo Video (Apologies for Delay)
 
-- Uploading soon ...
+[![Watch the video](https://img.youtube.com/vi/vOFz3OQI5bE/hqdefault.jpg)](https://www.youtube.com/watch?v=vOFz3OQI5bE)
 
 ---
 
