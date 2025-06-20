@@ -73,8 +73,10 @@ A special thanks to the reviewers for their time and feedback:
 
 ### 🎥 Demo Video (Apologies for Delay)
 
+#### You can watch it on Youtube for better quality :
 [![Watch the video](https://img.youtube.com/vi/vOFz3OQI5bE/hqdefault.jpg)](https://www.youtube.com/watch?v=vOFz3OQI5bE)
 
+#### Low quality due to the 100Mb limit on GitHub :
 
 https://github.com/user-attachments/assets/78073108-2c1b-4e81-93c5-99636464597a
 
