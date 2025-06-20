@@ -92,9 +92,10 @@ graph TD
 ## 🚀 **Getting Started**
 
 ```bash
-# After cloning:
-npm install
-npm run dev
+1 - git clone repo_link
+2 - cd repo_folder
+3 - npm install
+4 - npm run dev
 ```
 
 *Requires Node.js v18+*
@@ -102,9 +103,13 @@ npm run dev
 ### 🔐 **Environment Configuration**
 ```ini
 # .env
+1- create an .env file in the root folder and add this :
+
 VITE_GEMINI_API_KEY="your_key"
 VITE_OPENAI_API_KEY="your_key"  # Requires billing
+
 ```
+
 
 ---
 
