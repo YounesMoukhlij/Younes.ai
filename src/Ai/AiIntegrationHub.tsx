@@ -4,6 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { motion } from 'framer-motion';
 
 
+
 interface ChatMessage {
   role: "user" | "model";
   parts: { text: string }[];
@@ -114,7 +115,7 @@ const AiIntegrationHub = () => {
 
     const silenceTimeoutRef = useRef<number | null>(null);
     const lastTranscriptRef = useRef<string>("");
-    const isAutoSendingRef = useRef<boolean>(false);
+    const lastSentTranscriptRef = useRef<string>("");
 
     useEffect(() => {
         const geminiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -131,35 +132,27 @@ const AiIntegrationHub = () => {
 
 
     useEffect(() => {
+        console.log("[Effect] transcript:", transcript, "listening:", listening, "lastSent:", lastSentTranscriptRef.current);
         setInput(transcript);
-        console.log("Transcript updated:", transcript, "Listening:", listening);
-
         if (listening && transcript !== lastTranscriptRef.current) {
             if (silenceTimeoutRef.current) {
                 clearTimeout(silenceTimeoutRef.current);
             }
             silenceTimeoutRef.current = setTimeout(() => {
                 if (listening && transcript.trim()) {
-                    isAutoSendingRef.current = true;
                     SpeechRecognition.stopListening();
                     console.log("Auto-stopping listening due to silence");
+                    // Directly send the message after stopping listening
+                    if (transcript.trim() && transcript !== lastSentTranscriptRef.current) {
+                        lastSentTranscriptRef.current = transcript;
+                        console.log("[Timeout] Auto-sending message:", transcript);
+                        handleSend(transcript);
+                    }
                 }
             }, 2000);
-
             lastTranscriptRef.current = transcript;
         }
     }, [transcript, listening]);
-
-
-    useEffect(() => {
-        if (!listening && isAutoSendingRef.current && input.trim()) {
-            isAutoSendingRef.current = false;
-
-            setTimeout(() => {
-                handleSend();
-            }, 100);
-        }
-    }, [listening, input]);
 
 
     useEffect(() => {
@@ -190,50 +183,48 @@ const AiIntegrationHub = () => {
         }
     }, []);
 
-    const handleSend = async () => {
-        if (!input.trim()) return;
+    const handleSend = async (messageOverride?: string) => {
+        const messageToSend = (typeof messageOverride === 'string' ? messageOverride : input).trim();
+        console.log('[handleSend] Called with:', { messageOverride, input, messageToSend });
+        if (!messageToSend) {
+            console.log('[handleSend] No message to send, returning.');
+            return;
+        }
 
         setLoading(true);
         setError("");
         setResponse("");
 
         try {
-
-            const userMessage: ChatMessage = { role: "user", parts: [{ text: input }] };
+            const userMessage: ChatMessage = { role: "user", parts: [{ text: messageToSend }] };
             const updatedChatHistory = [...chatHistory, userMessage];
             setChatHistory(updatedChatHistory);
 
             let fullResponse = "";
+            console.log('[handleSend] Sending to API:', { provider: currentProvider, messageToSend, updatedChatHistory });
 
             if (currentProvider === "gemini") {
-
-                const stream = await GeminiService.sendMessages(input, updatedChatHistory);
-
+                const stream = await GeminiService.sendMessages(messageToSend, updatedChatHistory);
                 for await (const chunk of stream) {
                     const chunkText = chunk.text();
                     fullResponse += chunkText;
                     setResponse(prev => prev + chunkText);
                 }
             } else {
-
-                const stream = await callOpenAIAPI(input, updatedChatHistory);
+                const stream = await callOpenAIAPI(messageToSend, updatedChatHistory);
                 const reader = stream?.getReader();
                 const decoder = new TextDecoder();
-
                 if (reader) {
                     try {
                         while (true) {
                             const { done, value } = await reader.read();
                             if (done) break;
-
                             const chunk = decoder.decode(value);
                             const lines = chunk.split('\n');
-
                             for (const line of lines) {
                                 if (line.startsWith('data: ')) {
                                     const data = line.slice(6);
                                     if (data === '[DONE]') break;
-
                                     try {
                                         const parsed = JSON.parse(data);
                                         const content = parsed.choices?.[0]?.delta?.content;
@@ -241,9 +232,7 @@ const AiIntegrationHub = () => {
                                             fullResponse += content;
                                             setResponse(prev => prev + content);
                                         }
-                                    } catch (e) {
-
-                                    }
+                                    } catch (e) {}
                                 }
                             }
                         }
@@ -252,16 +241,12 @@ const AiIntegrationHub = () => {
                     }
                 }
             }
-
-
             setChatHistory(prev => [...prev, {
                 role: "model",
                 parts: [{ text: fullResponse }]
             }]);
-
         } catch (err) {
             setError(`Error: ${err instanceof Error ? err.message : 'Unknown error'}`);
-
             setChatHistory(prev => prev.slice(0, -1));
         } finally {
             setLoading(false);
@@ -288,12 +273,19 @@ const AiIntegrationHub = () => {
             console.log("Stopped listening");
         } else {
             try {
-                await navigator.mediaDevices.getUserMedia({ audio: true });
+                // Request microphone permission and immediately stop the stream to release the mic
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                stream.getTracks().forEach(track => track.stop());
                 resetTranscript();
                 lastTranscriptRef.current = "";
-                isAutoSendingRef.current = false;
-                SpeechRecognition.startListening({ continuous: true });
-                console.log("Started listening");
+                // Use non-continuous mode locally, continuous on production
+                if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+                    SpeechRecognition.startListening();
+                    console.log("Started listening (non-continuous mode for local dev)");
+                } else {
+                    SpeechRecognition.startListening({ continuous: true });
+                    console.log("Started listening (continuous mode)");
+                }
             } catch (err) {
                 setError("Microphone access denied. Please allow microphone access in your browser settings.");
                 console.log("Microphone access denied:", err);
@@ -422,7 +414,7 @@ const AiIntegrationHub = () => {
                     </motion.button>
 
                     <motion.button
-                        onClick={handleSend}
+                        onClick={() => handleSend()}
                         disabled={loading || !input.trim()}
                         className="hover:border-blue-300 hover:border-2 hover:bg-black hover:text-white text-black border-2 border-white/10 rounded-md px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 bg-white font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap"
                         whileHover={{ scale: 1.05 }}
