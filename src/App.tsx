@@ -7,7 +7,7 @@ import ParticlesBackground from './components/Styling/ParticlesBackground';
 import StatisticsSection from './components/Sections/StatisticsSection';
 import Header from './components/Sections/Header';
 import TeamSection from './components/Sections/TeamSection';
-import AiIntegrationHub from './Ai/AiIntegrationHub';  
+import AiIntegrationHub from './Ai/AiIntegrationHub';
 import ReviewsSection from './components/Sections/ReviewsSection';
 import FooterSection from './components/Sections/FooterSection';
 import PricingSection from './components/Sections/PricingSection';
@@ -20,6 +20,7 @@ function App() {
   return (
 
       <div className="w-full h-full ">
+        
         <ParticlesBackground/>
         <Header/>
         <Hero/>
