@@ -19,21 +19,42 @@ A special thanks to the reviewers for their time and feedback:
 
 ## 🌟 **Core Features**
 
-### 🤖 **Intelligent AI Integration**
-| Feature | Implementation Details | Tech Used |
-|---------|-----------------------|-----------|
-| **Dual AI Engine** | Switch seamlessly between Gemini & GPT | Gemini SDK, OpenAI API |
-| **Voice Interface** | Natural speech recognition with auto-send <br> *Note: Works best on latest Chrome browser* | Web Speech API |
-| **Real-time Streaming** | Dynamic response generation | Server-Sent Events |
-| **Smart Interaction** | Context-aware conversation flow | React State Management |
+#### **Dual AI Engine**
+- **Functionality**: Seamless switching between Google Gemini and OpenAI GPT
+- **Technology**: Gemini SDK + OpenAI API
+- **Features**:
+  - Instant model switching
+  - Consistent chat history preservation
+  - Adaptive response formatting
 
-> **Browser Compatibility Notice:**  
-> The voice recognition feature utilizes the Web Speech API which has varying support across browsers.  
-> **Recommended:** Latest version of Chrome for full functionality  
-> **Limited Support:** Firefox, Edge (partial functionality)  
-> **Not Supported:** Safari and mobile browsers may experience limitations  
-> For optimal experience, please enable microphone permissions and use in a quiet environment.
+#### **Voice Interface** 🎤
+- **Core Feature**: Speech-to-text with auto-send capability
+- **Technology**: Web Speech API
+- **Performance Notes**:
+  - Real-time transcription
+  - Silence detection for automatic sending
+  - Audio waveform visualization
+- **⚠️ Browser Compatibility**:
+  - **Optimal**: Chrome (latest version)
+  - **Partial**: Firefox, Edge
+  - **Unsupported**: Safari, most mobile browsers
+  - *Enable microphone permissions for full functionality*
 
+#### **Real-time Streaming** ⚡
+- **Technology**: Server-Sent Events (SSE)
+- **Benefits**:
+  - Character-by-character response display
+  - Low-latency interaction
+  - Network resilience
+
+#### **Smart Interaction** 🧠
+- **Features**:
+  - Context-aware conversations
+  - Session persistence
+  - Error recovery
+- **Technology**: React State Management
+
+---
 
 ### 🎨 **Immersive Visual Experience**
 ```diff
