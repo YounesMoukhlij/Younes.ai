@@ -23,9 +23,17 @@ A special thanks to the reviewers for their time and feedback:
 | Feature | Implementation Details | Tech Used |
 |---------|-----------------------|-----------|
 | **Dual AI Engine** | Switch seamlessly between Gemini & GPT | Gemini SDK, OpenAI API |
-| **Voice Interface** | Natural speech recognition with auto-send | Web Speech API |
+| **Voice Interface** | Natural speech recognition with auto-send <br> *Note: Works best on latest Chrome browser* | Web Speech API |
 | **Real-time Streaming** | Dynamic response generation | Server-Sent Events |
 | **Smart Interaction** | Context-aware conversation flow | React State Management |
+
+> **Browser Compatibility Notice:**  
+> The voice recognition feature utilizes the Web Speech API which has varying support across browsers.  
+> **Recommended:** Latest version of Chrome for full functionality  
+> **Limited Support:** Firefox, Edge (partial functionality)  
+> **Not Supported:** Safari and mobile browsers may experience limitations  
+> For optimal experience, please enable microphone permissions and use in a quiet environment.
+
 
 ### 🎨 **Immersive Visual Experience**
 ```diff
