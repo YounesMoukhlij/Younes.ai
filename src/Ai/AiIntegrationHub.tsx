@@ -281,17 +281,23 @@ const AiIntegrationHub = () => {
         }
     };
 
-    const handleVoice = () => {
+    const handleVoice = async () => {
         console.log("handleVoice called. listening:", listening);
         if (listening) {
             SpeechRecognition.stopListening();
             console.log("Stopped listening");
         } else {
-            resetTranscript();
-            lastTranscriptRef.current = "";
-            isAutoSendingRef.current = false;
-            SpeechRecognition.startListening({ continuous: true });
-            console.log("Started listening");
+            try {
+                await navigator.mediaDevices.getUserMedia({ audio: true });
+                resetTranscript();
+                lastTranscriptRef.current = "";
+                isAutoSendingRef.current = false;
+                SpeechRecognition.startListening({ continuous: true });
+                console.log("Started listening");
+            } catch (err) {
+                setError("Microphone access denied. Please allow microphone access in your browser settings.");
+                console.log("Microphone access denied:", err);
+            }
         }
     };
 
