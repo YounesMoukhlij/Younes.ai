@@ -8,16 +8,13 @@ Please review my work:
 - https://github.com/EnergentAI
 
 ## Features Implemented
-- [List your core features]
-- [AI integration details]
-- [Any advanced features]
+- Animations, Responsive ...
+- openAi and GeminiAi intergration
+- More ... Feel free to see the website on vercel
 
 ## Demo Video
 [Upload your 3-minute demo to YouTube or similar and link here]
-- Showcases UI/UX
-- Demonstrates core features
-- Shows AI functionality
-- Highlights advanced features
+
 
 
 
@@ -27,7 +24,7 @@ cp .env.example .env  # if you provide an example file
 
 ## Live Demo on Vercel
 👉 [younes-ai](https://younes-ai.vercel.app)  
-👉 [https://younes-ai.vercel.app](younes-ai)  
+
 
 ## Local Setup
 ```bash
