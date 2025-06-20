@@ -1,13 +1,13 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-// import "swiper/css";
+
 
 const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -16,7 +16,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -25,7 +25,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -34,7 +34,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -43,7 +43,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -52,7 +52,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -61,7 +61,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -70,7 +70,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -79,7 +79,7 @@ const team = [
   {
     name: "Younes Moukhlij",
     title: "Frontend Engineer",
-    img: "/team/21.jpg", 
+    img: "/team/21.jpg",
     orgs: [
       { name: "1337 school", logo: "/team/42.png" },
       { name: "frontend", logo: "/team/web.png" },
@@ -107,25 +107,25 @@ const TeamSection = () => (
         slidesPerView={1.2}
         centeredSlides={false}
         breakpoints={{
-          480: { 
+          480: {
             spaceBetween: 16,
-            slidesPerView: 1.5 
+            slidesPerView: 1.5
           },
-          640: { 
+          640: {
             spaceBetween: 20,
-            slidesPerView: 2 
+            slidesPerView: 2
           },
-          768: { 
+          768: {
             spaceBetween: 24,
-            slidesPerView: 2.5 
+            slidesPerView: 2.5
           },
-          1024: { 
+          1024: {
             spaceBetween: 28,
-            slidesPerView: 3 
+            slidesPerView: 3
           },
-          1280: { 
+          1280: {
             spaceBetween: 32,
-            slidesPerView: 4 
+            slidesPerView: 4
           }
         }}
         autoplay={{

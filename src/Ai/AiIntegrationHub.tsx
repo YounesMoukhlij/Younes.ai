@@ -3,7 +3,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { motion } from 'framer-motion';
 
-// Type definitions
+
 interface ChatMessage {
   role: "user" | "model";
   parts: { text: string }[];
@@ -13,7 +13,7 @@ interface GeminiServiceType {
   sendMessages: (message: string, prevChat: ChatMessage[]) => Promise<AsyncGenerator<any, void, unknown>>;
 }
 
-// Gemini Service Implementation
+
 const GeminiService: GeminiServiceType = (function () {
     const MODEL_NAME = "gemini-1.5-flash";
     const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
@@ -22,7 +22,7 @@ const GeminiService: GeminiServiceType = (function () {
 
     service.sendMessages = async function (message: string, prevChat: ChatMessage[]) {
         try {
-            const model = genAI.getGenerativeModel({ 
+            const model = genAI.getGenerativeModel({
                 model: MODEL_NAME,
                 generationConfig: {
                     maxOutputTokens: 8192,
@@ -46,25 +46,25 @@ const GeminiService: GeminiServiceType = (function () {
     return service;
 }());
 
-// OpenAI Service Implementation
+
 const callOpenAIAPI = async (message: string, chatHistory: ChatMessage[]) => {
     const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
     if (!API_KEY) throw new Error("OpenAI API key not configured");
-    
+
     const url = "https://api.openai.com/v1/chat/completions";
-    
-    // Convert chat history to OpenAI format
+
+
     const messages = chatHistory.map(msg => ({
         role: msg.role === "user" ? "user" : "assistant",
         content: msg.parts[0].text
     }));
-    
-    // Add current message
+
+
     messages.push({ role: "user", content: message });
-    
+
     const response = await fetch(url, {
         method: "POST",
-        headers: { 
+        headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${API_KEY}`
         },
@@ -75,16 +75,16 @@ const callOpenAIAPI = async (message: string, chatHistory: ChatMessage[]) => {
             stream: true
         }),
     });
-    
+
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error?.message || "OpenAI API request failed");
     }
-    
+
     return response.body;
 };
 
-// Main Component
+
 const AiIntegrationHub = () => {
     const [input, setInput] = useState("");
     const [response, setResponse] = useState("");
@@ -93,7 +93,7 @@ const AiIntegrationHub = () => {
     const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
     const [currentProvider, setCurrentProvider] = useState<"gemini" | "openai">("gemini");
 
-    // Speech recognition hooks
+
     const {
         transcript,
         listening,
@@ -101,7 +101,7 @@ const AiIntegrationHub = () => {
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
 
-    // Refs for auto-stop functionality f
+
     const silenceTimeoutRef = useRef<number | null>(null);
     const lastTranscriptRef = useRef<string>("");
     const isAutoSendingRef = useRef<boolean>(false);
@@ -109,7 +109,7 @@ const AiIntegrationHub = () => {
     useEffect(() => {
         const geminiKey = import.meta.env.VITE_GEMINI_API_KEY;
         const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
-        
+
         if (!geminiKey && !openaiKey) {
             setError("Warning: No API keys configured. Please set VITE_GEMINI_API_KEY or VITE_OPENAI_API_KEY");
         } else if (!geminiKey && openaiKey) {
@@ -119,41 +119,41 @@ const AiIntegrationHub = () => {
         }
     }, []);
 
-    // Update input when transcript changes
+
     useEffect(() => {
         setInput(transcript);
-        
-        // Auto-stop logic when transcript changes
+
+
         if (listening && transcript !== lastTranscriptRef.current) {
-            // Clear existing timeout
+
             if (silenceTimeoutRef.current) {
                 clearTimeout(silenceTimeoutRef.current);
             }
-            
-            // Set new timeout for 2 seconds of silence
+
+
             silenceTimeoutRef.current = setTimeout(() => {
                 if (listening && transcript.trim()) {
                     isAutoSendingRef.current = true;
                     SpeechRecognition.stopListening();
                 }
-            }, 2000); 
-            
+            }, 2000);
+
             lastTranscriptRef.current = transcript;
         }
     }, [transcript, listening]);
 
-    // Handle when listening stops
+
     useEffect(() => {
         if (!listening && isAutoSendingRef.current && input.trim()) {
             isAutoSendingRef.current = false;
-            // Small delay to ensure transcript is fully updated
+
             setTimeout(() => {
                 handleSend();
             }, 100);
         }
     }, [listening, input]);
 
-    // Cleanup timeout on unmount
+
     useEffect(() => {
         return () => {
             if (silenceTimeoutRef.current) {
@@ -170,7 +170,7 @@ const AiIntegrationHub = () => {
         setResponse("");
 
         try {
-            // Add user message to chat history
+
             const userMessage: ChatMessage = { role: "user", parts: [{ text: input }] };
             const updatedChatHistory = [...chatHistory, userMessage];
             setChatHistory(updatedChatHistory);
@@ -178,16 +178,16 @@ const AiIntegrationHub = () => {
             let fullResponse = "";
 
             if (currentProvider === "gemini") {
-                // Get streaming response from Gemini
+
                 const stream = await GeminiService.sendMessages(input, updatedChatHistory);
-                
+
                 for await (const chunk of stream) {
                     const chunkText = chunk.text();
                     fullResponse += chunkText;
                     setResponse(prev => prev + chunkText);
                 }
             } else {
-                // Get streaming response from OpenAI
+
                 const stream = await callOpenAIAPI(input, updatedChatHistory);
                 const reader = stream?.getReader();
                 const decoder = new TextDecoder();
@@ -200,12 +200,12 @@ const AiIntegrationHub = () => {
 
                             const chunk = decoder.decode(value);
                             const lines = chunk.split('\n');
-                            
+
                             for (const line of lines) {
                                 if (line.startsWith('data: ')) {
                                     const data = line.slice(6);
                                     if (data === '[DONE]') break;
-                                    
+
                                     try {
                                         const parsed = JSON.parse(data);
                                         const content = parsed.choices?.[0]?.delta?.content;
@@ -214,7 +214,7 @@ const AiIntegrationHub = () => {
                                             setResponse(prev => prev + content);
                                         }
                                     } catch (e) {
-                                        // Ignore parsing errors for incomplete chunks
+
                                     }
                                 }
                             }
@@ -225,10 +225,10 @@ const AiIntegrationHub = () => {
                 }
             }
 
-            // Add AI response to chat history
-            setChatHistory(prev => [...prev, { 
-                role: "model", 
-                parts: [{ text: fullResponse }] 
+
+            setChatHistory(prev => [...prev, {
+                role: "model",
+                parts: [{ text: fullResponse }]
             }]);
 
         } catch (err) {
@@ -245,7 +245,7 @@ const AiIntegrationHub = () => {
     const toggleProvider = () => {
         const geminiKey = import.meta.env.VITE_GEMINI_API_KEY;
         const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
-        
+
         if (currentProvider === "gemini" && openaiKey) {
             setCurrentProvider("openai");
         } else if (currentProvider === "openai" && geminiKey) {
@@ -276,15 +276,15 @@ const AiIntegrationHub = () => {
     }
 
     return (
-        <motion.section 
-            id="ai-integration-hub" 
+        <motion.section
+            id="ai-integration-hub"
             className="w-full bg-black py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 flex flex-col items-center min-h-screen"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8 }}
         >
-            <motion.h2 
+            <motion.h2
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 lg:mb-12 xl:mb-16 w-full max-w-7xl text-center"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -296,7 +296,7 @@ const AiIntegrationHub = () => {
                 </span>
             </motion.h2>
 
-            <motion.div 
+            <motion.div
                 className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto rounded-xl border bg-gradient-to-b from-white/5 to-white/0 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 shadow-lg flex flex-col items-center transition-all duration-300 animate-border-glow"
                 initial={{ opacity: 0, y: 100, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -304,7 +304,7 @@ const AiIntegrationHub = () => {
                 transition={{ duration: 1, delay: 0.4, type: "spring", stiffness: 100 }}
             >
                 {/* Provider Toggle */}
-                <motion.div 
+                <motion.div
                     className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -326,7 +326,7 @@ const AiIntegrationHub = () => {
                 </motion.div>
 
                 {/* Response area */}
-                <motion.div 
+                <motion.div
                     className="w-full min-h-32 sm:min-h-40 md:min-h-48 lg:min-h-56 xl:min-h-64 rounded-md bg-[#111114] text-white p-2 sm:p-3 md:p-4 lg:p-5 border border-white/10 mb-3 sm:mb-4 md:mb-6 overflow-y-auto"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -349,7 +349,7 @@ const AiIntegrationHub = () => {
                 </motion.div>
 
                 {/* Input area */}
-                <motion.div 
+                <motion.div
                     className="w-full flex flex-row gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -394,7 +394,7 @@ const AiIntegrationHub = () => {
                     </motion.button>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     className="mt-4 sm:mt-6 text-gray-400 text-xs sm:text-sm md:text-base text-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

@@ -12,7 +12,7 @@ const pricingData = {
         { value: '20k', text: 'agent credits with unlimited workflows' },
         { value: '2k', text: 'pages of document reading and unlimited webpages reading' },
       ],
-      hosting: { icon: <FiCloud />, text: 'Hosted by Energent.ai' },
+      hosting: { icon: <FiCloud />, text: 'Hosted by Younes.ai' },
       buttonText: 'Start free trial',
       extras: [],
     },
@@ -24,7 +24,7 @@ const pricingData = {
         { value: '100k', text: 'agent credits with unlimited workflows' },
         { value: '10k', text: 'pages of document reading and unlimited webpages reading' },
       ],
-      hosting: { icon: <FiCloud />, text: 'Hosted by Energent.ai' },
+      hosting: { icon: <FiCloud />, text: 'Hosted by Younes.ai' },
       buttonText: 'Start free trial',
       extras: [
         'Everything in the Admin plan, plus:',
@@ -40,7 +40,7 @@ const pricingData = {
         { value: 'up to ∞', text: 'workflow executions with unlimited steps' },
         { value: 'up to ∞', text: 'active workflows and unlimited test ones' },
       ],
-      hosting: { icon: <FiServer />, text: 'Self-hosted (or hosted by Energent.ai)' },
+      hosting: { icon: <FiServer />, text: 'Self-hosted (or hosted by Younes.ai)' },
       buttonText: 'Contact us',
       extras: [
         'Everything in the Executive plan, plus:',
@@ -51,7 +51,7 @@ const pricingData = {
     },
   ],
   annually: [
-    // You can define different values for annual plans, e.g., with a discount
+
     {
       plan: 'Admin',
       description: 'Ideal for simple routine workflow, such as data entry, in HR, Finance, Operation, and any Admin department.',
@@ -60,7 +60,7 @@ const pricingData = {
         { value: '240k', text: 'agent credits with unlimited workflows' },
         { value: '24k', text: 'pages of document reading and unlimited webpages reading' },
       ],
-      hosting: { icon: <FiCloud />, text: 'Hosted by Energent.ai' },
+      hosting: { icon: <FiCloud />, text: 'Hosted by Younes.ai' },
       buttonText: 'Start free trial',
       extras: [],
     },
@@ -72,7 +72,7 @@ const pricingData = {
         { value: '1.2M', text: 'agent credits with unlimited workflows' },
         { value: '120k', text: 'pages of document reading and unlimited webpages reading' },
       ],
-      hosting: { icon: <FiCloud />, text: 'Hosted by Energent.ai' },
+      hosting: { icon: <FiCloud />, text: 'Hosted by Younes.ai' },
       buttonText: 'Start free trial',
       extras: [
         'Everything in the Admin plan, plus:',
@@ -88,7 +88,7 @@ const pricingData = {
         { value: 'up to ∞', text: 'workflow executions with unlimited steps' },
         { value: 'up to ∞', text: 'active workflows and unlimited test ones' },
       ],
-      hosting: { icon: <FiServer />, text: 'Self-hosted (or hosted by Energent.ai)' },
+      hosting: { icon: <FiServer />, text: 'Self-hosted (or hosted by Younes.ai)' },
       buttonText: 'Contact us',
       extras: [
         'Everything in the Executive plan, plus:',
@@ -107,7 +107,7 @@ const PricingSection = () => {
 
   return (
     <section id="pricing" className="opacity-75 w-full bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-      <motion.h2 
+      <motion.h2
         className="text-5xl sm:text-6xl md:text-7xl font-bold text-center mb-4"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ const PricingSection = () => {
         </span>
       </motion.h2>
 
-      <motion.p 
+      <motion.p
         className="text-base sm:text-lg text-gray-400 text-center max-w-xl mb-10"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -128,8 +128,8 @@ const PricingSection = () => {
       >
         Three different subscriptions to match your companies' needs.
       </motion.p>
-      
-      <motion.div 
+
+      <motion.div
         className="flex items-center justify-center p-1 rounded-lg bg-[#111114] border border-white/10 mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -194,7 +194,7 @@ const PricingSection = () => {
               <button className="w-full py-3 bg-white/5 border border-white/10 rounded-lg text-white font-medium hover:bg-white/10 hover:border-white/20 transition-colors">
                 {plan.buttonText}
               </button>
-              
+
               {plan.extras.length > 0 && (
                 <div className="mt-8 pt-6 border-t border-white/10">
                   <p className="text-white mb-4 text-sm">{plan.extras[0]}</p>
@@ -216,4 +216,4 @@ const PricingSection = () => {
   );
 };
 
-export default PricingSection; 
+export default PricingSection;

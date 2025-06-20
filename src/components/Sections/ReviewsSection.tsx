@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-// @ts-ignore
+
 import "swiper/css";
 import { Link } from "react-router-dom";
 
@@ -118,9 +118,9 @@ const ReviewsSection = () => (
                   "{review.text}"
                 </div>
                 <div className="flex items-center gap-3 sm:gap-4 rounded-lg border border-white/10 bg-black/40 p-3 sm:p-4">
-                  <img 
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" 
-                    src={"/team/user.jpg"} 
+                  <img
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
+                    src={"/team/user.jpg"}
                     alt={review.user.name}
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = "/team/user.jpg";
