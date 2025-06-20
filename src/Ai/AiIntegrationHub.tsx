@@ -170,9 +170,10 @@ const AiIntegrationHub = () => {
     }, []);
 
     useEffect(() => {
-        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (window.SpeechRecognition) {
-            const recognition = new window.SpeechRecognition();
+        // @ts-ignore
+        const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognitionAPI) {
+            const recognition = new SpeechRecognitionAPI();
             recognition.onerror = (event) => {
                 console.log("SpeechRecognition error:", event.error, event);
             };
