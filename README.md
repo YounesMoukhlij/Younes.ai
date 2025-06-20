@@ -221,6 +221,16 @@ This project is a modern, full-featured AI-powered web app with a focus on:
 
 ---
 
+### ✅ Assignment Requirements
+- [x] Author & reviewers information  
+- [x] Full feature implementation  
+- [x] Deployment instructions  
+- [x] Live demo link  
+- [x] Video demonstration (pending upload)
+
+---
+
+
 #### ----------------> Thanks for reading <----------------
 
 
