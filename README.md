@@ -2,9 +2,6 @@
 
 ```markdown
 
-<div align="center">
-  
-
 ---
 
 ## 👨‍💻 Reviewers  
@@ -129,9 +126,6 @@ VITE_OPENAI_API_KEY=your_key_here
 
 ---
 
-
-
-```
 
 
 
