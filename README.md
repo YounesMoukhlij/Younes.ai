@@ -132,7 +132,8 @@ VITE_OPENAI_API_KEY="your_key"  # Requires billing
 
 ### **Live Demo**  
 👉 **[younes-ai.vercel.app](https://younes-ai.vercel.app)**  
- *Demo resets every 2 hours*
+
+---
 
 
 
