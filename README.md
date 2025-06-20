@@ -71,6 +71,12 @@ A special thanks to the reviewers for their time and feedback:
 
 ---
 
+### 🎥 Demo Video (Apologies for Delay)
+
+- Uploading soon ...
+
+---
+
 ## 🏗️ **Technical Architecture**
 
 ```mermaid
