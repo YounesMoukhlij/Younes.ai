@@ -10,9 +10,19 @@ Please review my work:
 ### Features Implemented
 - Animations, Responsive ...
 - openAi and GeminiAi intergration
-- More ... Feel free to see the website on vercel
+- More ... Feel free to see the website on vercel.
 
-### Demo Video
+
+Dear Reviewers,  
+
+I sincerely apologize for not being able to upload the demo video of my website as planned. Unfortunately, I experienced persistent internet connectivity issues due to a problematic router, which caused severe lag and frequent disconnections throughout the day. Despite multiple attempts, I was unable to successfully upload the recorded video.  
+
+I understand the importance of a live demonstration and will prioritize uploading the video as soon as my internet connection stabilizes. Alternatively, I’d be happy to schedule a live walkthrough if needed.  
+
+Thank you for your understanding and patience. Please let me know if you’d like any additional details in the meantime.  
+
+Best regards and thanks a lot for your understanding. 
+ 
 
 ![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
 ![Demo 2](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/2.png)
