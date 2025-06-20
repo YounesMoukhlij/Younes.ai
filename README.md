@@ -14,16 +14,9 @@ Please review my work:
 
 ### Demo Video
 
-<div align="center">
-  <img src="Images/1.jpg" width="200" alt="Demo 1">
-  <img src="Image/2.jpg" width="200" alt="Demo 2">
-  <img src="demo/3.jpg" width="200" alt="Demo 3">
-  <br>
-  <img src="demo/4.jpg" width="200" alt="Demo 4">
-  <img src="demo/5.jpg" width="200" alt="Demo 5">
-  <img src="demo/6.jpg" width="200" alt="Demo 6">
-</div>
-
+![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
+![Demo 3](https://raw.github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
+![Demo 2](https://raw.githubusercontent.com/your-username/your-repo/main/demo/2.jpg)
 
 
 
