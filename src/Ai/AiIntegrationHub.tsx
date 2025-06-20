@@ -303,11 +303,12 @@ const AiIntegrationHub = () => {
     return (
         <motion.section
             id="ai-integration-hub"
-            className="w-full bg-black py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 flex flex-col items-center min-h-screen"
+            className="w-full bg-black bg-opacity-90 py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 flex flex-col items-center min-h-screen"
+            style={{ backgroundColor: "rgba(0,0,0,0.9)" }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9 }}
         >
             <motion.h2
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 lg:mb-12 xl:mb-16 w-full max-w-7xl text-center"
