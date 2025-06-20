@@ -110,8 +110,6 @@ VITE_OPENAI_API_KEY=your_key_here
 - **Future-Proof Foundation** - Modern tech stack architecture
 - **Comprehensive Documentation** - Clear implementation details
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-repo)
-
 ---
 
 ## 🧩 **Component Ecosystem**
@@ -125,6 +123,12 @@ VITE_OPENAI_API_KEY=your_key_here
 | `PricingMatrix` | Plan comparisons | CSS Grid |
 
 ---
+
+### **Live Demo**  
+👉 **[younes-ai.vercel.app](https://younes-ai.vercel.app)**  
+
+
+
 
 
 
