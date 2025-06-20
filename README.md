@@ -26,6 +26,7 @@ Thank you for your understanding and for considering my work despite these unexp
  
 
 ![Video](https://github.com/YounesMoukhlij/Younes.ai/blob/main/video.mov)
+![Video](https://github.com/YounesMoukhlij/Younes.ai/blob/main/video.gif)
 
 
 ![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
