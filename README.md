@@ -1,7 +1,7 @@
 # Younes MOUKHLIJ
 
 ### Reviewers
-Please review my work:
+
 - https://github.com/remi-guan
 - https://github.com/lingjiekong
 - https://github.com/goldmermaid
