@@ -109,6 +109,7 @@ const AiIntegrationHub = () => {
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
 
+    console.log("browserSupportsSpeechRecognition:", browserSupportsSpeechRecognition);
 
     const silenceTimeoutRef = useRef<number | null>(null);
     const lastTranscriptRef = useRef<string>("");
@@ -130,19 +131,17 @@ const AiIntegrationHub = () => {
 
     useEffect(() => {
         setInput(transcript);
-
+        console.log("Transcript updated:", transcript, "Listening:", listening);
 
         if (listening && transcript !== lastTranscriptRef.current) {
-
             if (silenceTimeoutRef.current) {
                 clearTimeout(silenceTimeoutRef.current);
             }
-
-
             silenceTimeoutRef.current = setTimeout(() => {
                 if (listening && transcript.trim()) {
                     isAutoSendingRef.current = true;
                     SpeechRecognition.stopListening();
+                    console.log("Auto-stopping listening due to silence");
                 }
             }, 2000);
 
@@ -168,6 +167,16 @@ const AiIntegrationHub = () => {
                 clearTimeout(silenceTimeoutRef.current);
             }
         };
+    }, []);
+
+    useEffect(() => {
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (window.SpeechRecognition) {
+            const recognition = new window.SpeechRecognition();
+            recognition.onerror = (event) => {
+                console.log("SpeechRecognition error:", event.error, event);
+            };
+        }
     }, []);
 
     const handleSend = async () => {
@@ -262,13 +271,16 @@ const AiIntegrationHub = () => {
     };
 
     const handleVoice = () => {
+        console.log("handleVoice called. listening:", listening);
         if (listening) {
             SpeechRecognition.stopListening();
+            console.log("Stopped listening");
         } else {
             resetTranscript();
             lastTranscriptRef.current = "";
             isAutoSendingRef.current = false;
             SpeechRecognition.startListening({ continuous: true });
+            console.log("Started listening");
         }
     };
 
@@ -280,6 +292,7 @@ const AiIntegrationHub = () => {
     };
 
     if (!browserSupportsSpeechRecognition) {
+        console.log("Speech recognition is not supported in this browser/environment.");
         return <div className="text-red-500 p-4">Your browser doesn't support speech recognition.</div>;
     }
 
