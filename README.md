@@ -116,7 +116,7 @@ npm run dev
 ```
 
 ### 🔐 **Environment Configuration**
-Create `.env` file with:
+Create `.env` file int the root folder with:
 ```ini
 VITE_GEMINI_API_KEY=your_key_here
 VITE_OPENAI_API_KEY=your_key_here
