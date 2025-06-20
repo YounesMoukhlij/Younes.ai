@@ -19,7 +19,7 @@ A special thanks to the reviewers for their time and feedback:
 
 #### **Dual AI Engine**
 - **Functionality**: Seamless switching between Google Gemini and OpenAI GPT
-- **Technology**: Gemini SDK + OpenAI API
+- **Technology**: Gemini SDK + OpenAI API 
 - **Features**:
   - Instant model switching
   - Consistent chat history preservation
@@ -37,6 +37,7 @@ A special thanks to the reviewers for their time and feedback:
   - **Partial**: Firefox, Edge
   - **Unsupported**: Safari, most mobile browsers
   - *Enable microphone permissions for full functionality*
+- ** ⚠️ OpenAI is not free so implement it, but the only answer is check pricing ...
 
 #### **Real-time Streaming** ⚡
 - **Technology**: Server-Sent Events (SSE)
