@@ -15,8 +15,11 @@ Please review my work:
 ### Demo Video
 
 ![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
-![Demo 3](https://raw.github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
-![Demo 2](https://raw.githubusercontent.com/your-username/your-repo/main/demo/2.jpg)
+![Demo 2](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/2.png)
+![Demo 3](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/3.png)
+![Demo 3](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/4.png)
+![Demo 3](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/5.png)
+![Demo 3](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/6.png)
 
 
 
