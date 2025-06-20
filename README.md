@@ -101,10 +101,11 @@ graph TD
 *Requires Node.js v18+*
 
 ### 🔐 **Environment Configuration**
+
+- You can get the keys by checking the Gemini or OpenAI websites.
+- Create an .env file in the root folder and add this :
 ```ini
 # .env
-1- create an .env file in the root folder and add this :
-
 VITE_GEMINI_API_KEY="your_key"
 VITE_OPENAI_API_KEY="your_key"  # Requires billing
 
