@@ -53,10 +53,15 @@ Thank you for your understanding and for considering my work despite these unexp
 
 ### env
 Create a .env file in the root folder and add your API keys
+<br>
 cp .env.example .env  # if you provide an example file
+<br>
 or manually create .env with required variables
+<br>
 - the variables should be named like this 
+<br>
 VITE_GEMINI_API_KEY= ...
+<br>
 VITE_OPENAI_API_KEY= ...
 
 
