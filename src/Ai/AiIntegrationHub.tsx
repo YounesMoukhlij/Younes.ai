@@ -376,7 +376,7 @@ const AiIntegrationHub = () => {
 
                 {/* Input area */}
                 <motion.div
-                    className="w-full flex flex-row gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6"
+                    className="w-full flex flex-row flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
@@ -388,7 +388,7 @@ const AiIntegrationHub = () => {
                         onChange={e => setInput(e.target.value)}
                         onKeyDown={handleKeyDown}
                         placeholder="Type your message or use the mic..."
-                        className="flex-1 rounded-md bg-[#111114] text-white px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 outline-none border border-white/10 focus:border-blue-400 transition-colors text-xs sm:text-sm md:text-base lg:text-lg"
+                        className="flex-1 min-w-0 flex-shrink bg-[#111114] text-white px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 rounded-md outline-none border border-white/10 focus:border-blue-400 transition-colors text-xs sm:text-sm md:text-base lg:text-lg"
                         disabled={loading}
                         whileFocus={{ scale: 1.02 }}
                     />
@@ -396,7 +396,7 @@ const AiIntegrationHub = () => {
                     <motion.button
                         onClick={handleVoice}
                         disabled={loading}
-                        className={`flex items-center justify-center hover:border-blue-300 hover:border-2 hover:bg-black hover:text-white rounded-md px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 border-2 border-white/10 transition-colors font-bold ${
+                        className={`w-10 sm:w-auto flex items-center justify-center hover:border-blue-300 hover:border-2 hover:bg-black hover:text-white rounded-md px-0 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 border-2 border-white/10 transition-colors font-bold ${
                             listening ? "bg-blue-400 text-white" : "bg-white text-black"
                         }`}
                         aria-label={listening ? "Stop listening" : "Start voice input"}
@@ -406,7 +406,7 @@ const AiIntegrationHub = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                         </svg>
-                        {listening && <span className="ml-1 sm:ml-2 text-xs sm:text-sm">Listening...</span>}
+                        {listening && <span className="hidden sm:inline ml-1 sm:ml-2 text-xs sm:text-sm">Listening...</span>}
                     </motion.button>
 
                     <motion.button
