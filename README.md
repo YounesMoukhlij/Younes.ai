@@ -25,6 +25,8 @@ I truly regret that technical difficulties prevented me from sharing the video d
 Thank you for your understanding and for considering my work despite these unexpected challenges. Please let me know if there’s any additional information I can provide.
  
 
+![Video](https://github.com/YounesMoukhlij/Younes.ai/blob/main/video.mov)
+
 ![Demo 1](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/1.png)
 ![Demo 2](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/2.png)
 ![Demo 3](https://github.com/YounesMoukhlij/Younes.ai/blob/main/Images/3.png)
