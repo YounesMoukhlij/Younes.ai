@@ -278,14 +278,9 @@ const AiIntegrationHub = () => {
                 stream.getTracks().forEach(track => track.stop());
                 resetTranscript();
                 lastTranscriptRef.current = "";
-                // Use non-continuous mode locally, continuous on production
-                if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-                    SpeechRecognition.startListening();
-                    console.log("Started listening (non-continuous mode for local dev)");
-                } else {
-                    SpeechRecognition.startListening({ continuous: true });
-                    console.log("Started listening (continuous mode)");
-                }
+                // Always use non-continuous mode for all environments
+                SpeechRecognition.startListening();
+                console.log("Started listening (non-continuous mode for all envs)");
             } catch (err) {
                 setError("Microphone access denied. Please allow microphone access in your browser settings.");
                 console.log("Microphone access denied:", err);
