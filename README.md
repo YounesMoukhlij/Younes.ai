@@ -1,17 +1,9 @@
 # Younes MOUKHLIJ
 
 ```markdown
-# ✨ AI Nexus Portal ✨  
-### *A Next-Generation AI Experience by Younes MOUKHLIJ*
 
 <div align="center">
   
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://younes-ai.vercel.app)  
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?logo=tailwind-css)](https://tailwindcss.com/)
-
-</div>
 
 ---
 
@@ -108,7 +100,8 @@ VITE_OPENAI_API_KEY=your_key_here
 ---
 
 ## 🎥 **Video Demonstration**
-*"I sincerely apologize for the delayed demo video due to unforeseen technical difficulties. The complete walkthrough will be available shortly. In the meantime, the live demo showcases all core functionality."*
+
+- Uploading soon ... 
 
 ---
 
@@ -136,13 +129,8 @@ VITE_OPENAI_API_KEY=your_key_here
 
 ---
 
-*"More than just an application - it's an experience that pushes the boundaries of web interactivity."* 🚀
 
-<div align="center">
-  <br>
-  <img src="https://img.shields.io/github/stars/your-repo?style=social" alt="Stars">
-  <img src="https://img.shields.io/github/forks/your-repo?style=social" alt="Forks">
-</div>
+
 ```
 
 
