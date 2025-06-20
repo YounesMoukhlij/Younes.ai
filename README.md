@@ -231,7 +231,7 @@ This project is a modern, full-featured AI-powered web app with a focus on:
 ---
 
 
-#### ----------------> Thanks for reading <----------------
+#### Thanks for reading.
 
 
 
