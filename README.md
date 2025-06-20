@@ -58,7 +58,7 @@ cp .env.example .env  # if you provide an example file
 <br>
 or manually create .env with required variables
 <br>
-- the variables should be named like this 
+- the variables should be named like this :
 <br>
 VITE_GEMINI_API_KEY= ...
 <br>
