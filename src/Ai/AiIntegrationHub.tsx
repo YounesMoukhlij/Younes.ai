@@ -52,7 +52,7 @@ const callOpenAIAPI = async (message: string, chatHistory: ChatMessage[]) => {
     const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
     if (!API_KEY) throw new Error("OpenAI API key not configured");
 
-    const url = "https://api.openai.com/v1/chat/completions";
+    const url = import.meta.env.VITE_OPENAI_API_URL;
 
 
     const messages = chatHistory.map(msg => ({

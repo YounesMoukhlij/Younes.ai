@@ -1,19 +1,6 @@
 # Younes MOUKHLIJ
 
----
-
-## 👨‍💻 Reviewers  
-
-A special thanks to the reviewers for their time and feedback:  
-
-- [@remi-guan](https://github.com/remi-guan)  
-- [@lingjiekong](https://github.com/lingjiekong)  
-- [@goldmermaid](https://github.com/goldmermaid)  
-- [@EnergentAI](https://github.com/EnergentAI)  
-
-🎉 **Thank you!** 🎉  
-
-*Your feedback is greatly appreciated!*  
+**Younes.ai** is a modern, AI-powered web application that combines conversational AI with a polished, immersive interface. Users can chat with leading AI models (Google Gemini and OpenAI GPT), switch providers on the fly, and interact via text or voice—all with real-time streaming, session persistence, and a responsive, animated UI. The project serves as both a showcase of AI integration and a full-featured landing experience, with sections for features, applications, team, pricing, reviews, and FAQ, built with React, TypeScript, and Vite.
 
 ---
 
@@ -21,7 +8,7 @@ A special thanks to the reviewers for their time and feedback:
 
 #### **Dual AI Engine**
 - **Functionality**: Seamless switching between Google Gemini and OpenAI GPT
-- **Technology**: Gemini SDK + OpenAI API 
+- **Technology**: Gemini SDK + OpenAI API
 - **Features**:
   - Instant model switching
   - Consistent chat history preservation
@@ -68,20 +55,6 @@ A special thanks to the reviewers for their time and feedback:
 ```
 
 *All animations respect prefers-reduced-motion*
-
----
-
-### 🎥 Demo Video (Apologies for Delay)
-
-#### You can watch it on Youtube for better quality :
-[![Watch the video](https://img.youtube.com/vi/vOFz3OQI5bE/hqdefault.jpg)](https://www.youtube.com/watch?v=vOFz3OQI5bE)
-
-#### Low quality due to the 100Mb limit on GitHub :
-
-
-https://github.com/user-attachments/assets/e5cee0c9-24ec-4a15-8dba-2f01e1102117
-
-
 
 
 
@@ -140,8 +113,8 @@ VITE_OPENAI_API_KEY="your_key"  # Requires billing
 
 ---
 
-### **Live Demo**  
-👉 **[younes-ai.vercel.app](https://younes-ai.vercel.app)**  
+### **Live Demo**
+👉 **[younes-ai.vercel.app](https://younes-ai.vercel.app)**
 
 ---
 
@@ -233,10 +206,10 @@ This project is a modern, full-featured AI-powered web app with a focus on:
 ---
 
 ### ✅ Assignment Requirements
-- [x] Author & reviewers information  
-- [x] Full feature implementation  
-- [x] Deployment instructions  
-- [x] Live demo link  
+- [x] Author & reviewers information
+- [x] Full feature implementation
+- [x] Deployment instructions
+- [x] Live demo link
 - [x] Video demonstration (pending upload)
 
 ---
